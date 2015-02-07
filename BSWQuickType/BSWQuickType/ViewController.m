@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	[self.view setBackgroundColor:[UIColor blueColor]];
 	_namesArray = @[@"Zane", @"Devin", @"James", @"John", @"Sami", @"Zach"];
 	_exampleTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.view.frame) - 200/2,
 																	  55,
@@ -27,8 +28,9 @@
 																	  30)];
 	[_exampleTextField setBackgroundColor:[UIColor lightGrayColor]];
 	quickTypeView = [[BSWQuickType alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 36)
-													  suggestionArray:_namesArray
-														  onTextField:_exampleTextField];
+										suggestionArray:_namesArray
+									  filterSuggestions:NO
+											onTextField:_exampleTextField];
 	quickTypeView.quickTypeShouldScroll = YES;
 	quickTypeView.quickTypePagingEnabled = YES;
 	quickTypeView.delegate = self;

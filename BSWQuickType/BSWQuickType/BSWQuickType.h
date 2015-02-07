@@ -10,7 +10,7 @@
 
 @protocol BSWQuickTypeDelegate;
 
-@interface BSWQuickType : UIScrollView {
+@interface BSWQuickType : UIScrollView <UITextFieldDelegate> {
 	__weak id <BSWQuickTypeDelegate> delegate;
 }
 
@@ -18,6 +18,7 @@
 @property (assign) BOOL quickTypeShouldScroll;
 @property (assign) BOOL quickTypePagingEnabled;
 @property (assign) BOOL quickTypeBouncingEnabled;
+@property (assign) BOOL quickTypeFilter;
 #pragma mark -
 
 @property (nonatomic, strong) UITextField *textField;
@@ -25,15 +26,18 @@
 @property (weak) id <BSWQuickTypeDelegate> delegate;
 
 /**
- *  Initializes the QuickType frame with a list of suggestions. The textField parameter is to make your life easieri as the programmer.
+ *  Initializes the InputAccessoryView that can be used later on your TextField.
  *
- *  @param frame      A CGRect determining the frame of the QuickType view. (optional)
- *  @param suggestion An array containing the results you'd like to display in QuickType. (required)
- *  @param textField  The TextField you'd like to add the QuickType view to. (required)
+ *  @param frame           The frame in which you want the accessory view to be. Defaults to the size of QuickType.
+ *  @param suggestionArray An array of words you want placed inside the QuickType bar.
+ *  @param filter          Whether or not you want the words to adjust based on what the user types.
  *
- *  @return UIView
+ *  @return Returns a UIScrollView in which your can place in the InputAccessoryView of your TextField.
  */
-- (instancetype)initWithFrame:(CGRect)frame suggestionArray:(NSArray *)suggestion onTextField:(UITextField *)textField;
+- (instancetype)initWithFrame:(CGRect)frame
+			  suggestionArray:(NSArray *)suggestionArray
+			filterSuggestions:(BOOL)filter
+				  onTextField:(UITextField *)textField;
 
 @end
 
