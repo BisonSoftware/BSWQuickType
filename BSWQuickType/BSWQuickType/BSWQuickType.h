@@ -18,8 +18,9 @@
 @property (assign) BOOL quickTypeShouldScroll;
 @property (assign) BOOL quickTypePagingEnabled;
 @property (assign) BOOL quickTypeBouncingEnabled;
-@property (nonatomic, strong) UIColor *backgroundColor;
 #pragma mark -
+
+@property (nonatomic, strong) UITextField *textField;
 
 @property (weak) id <BSWQuickTypeDelegate> delegate;
 

@@ -13,19 +13,20 @@
 }
 @synthesize delegate;
 
-- (instancetype)init {
-	if (self = [super init]) {
-		
-	}
-	return self;
-}
-
 - (instancetype)initWithFrame:(CGRect)frame suggestionArray:(NSArray *)suggestionArray onTextField:(UITextField *)textField {
 	self = [super initWithFrame:frame];
 	_suggestionArray = suggestionArray;
+	_textField = textField;
 	
 	// displays all the buttons in the scroll view
 	for (int i = 0; i < suggestionArray.count; i++) {
+		CALayer *borderLeft = [CALayer layer];
+		borderLeft.frame = CGRectMake(0, 0, 0.5, frame.size.height);
+		[borderLeft setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.5].CGColor];
+		CALayer *borderRight = [CALayer layer];
+		borderRight.frame = CGRectMake(0, 0, 0.5, frame.size.height);
+		[borderRight setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.5].CGColor];
+		
 		UIButton *suggestionButton = [[UIButton alloc] initWithFrame:CGRectMake(i*frame.size.width/3,
 																		  0,
 																		  frame.size.width/3,
@@ -33,6 +34,9 @@
 		[suggestionButton setTitle:suggestionArray[i] forState:UIControlStateNormal];
 		[suggestionButton setBackgroundColor:[UIColor colorWithRed:173.0/255 green:180.0/255 blue:190.0/255 alpha:1]];
 		[suggestionButton setTag:i];
+		[suggestionButton setClipsToBounds:YES];
+		[suggestionButton.layer addSublayer:borderLeft];
+		[suggestionButton.layer addSublayer:borderRight];
 		[suggestionButton addTarget:self
 					   action:@selector(suggestionTapped:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:suggestionButton];
@@ -47,7 +51,7 @@
 	
 	if (_quickTypeShouldScroll) {
 		// makes the scroll view bigger so it can actually scroll
-		[self setContentSize:CGSizeMake(_suggestionArray.count*rect.size.width/3, 44)];
+		[self setContentSize:CGSizeMake(_suggestionArray.count*rect.size.width/3, self.frame.size.height)];
 	}
 	
 	if (_quickTypePagingEnabled) {

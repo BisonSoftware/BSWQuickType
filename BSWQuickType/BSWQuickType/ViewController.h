@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BSWQuickType.h"
 
-@interface ViewController : UIViewController <BSWQuickTypeDelegate>
+// UITextFieldDelegate is NOT required.
+@interface ViewController : UIViewController <BSWQuickTypeDelegate, UITextFieldDelegate>
 
 @end
 
