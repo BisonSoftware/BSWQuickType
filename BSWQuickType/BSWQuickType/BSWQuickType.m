@@ -74,7 +74,7 @@
 	NSArray *tempArray = _suggestionArray;
 	NSString *searchString = sender.text;
 	
-	NSPredicate *searchSearch = [NSPredicate predicateWithFormat:@"self CONTAINS[cd] %@", searchString];
+	NSPredicate *searchSearch = [NSPredicate predicateWithFormat:@"self BEGINSWITH[cd] %@", searchString];
 	NSArray *searchResults = [tempArray filteredArrayUsingPredicate:searchSearch];
 	
 	if (searchResults.count == 0 || !_quickTypeFilter) {
@@ -122,6 +122,14 @@
 					   action:@selector(suggestionTapped:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:suggestionButton];
 	}
+}
+
+- (void)hideQuickType {
+	[self setHidden:YES];
+}
+
+- (void)showQuickType {
+	[self setHidden:NO];
 }
 #pragma mark -
 

@@ -39,6 +39,10 @@
 			filterSuggestions:(BOOL)filter
 				  onTextField:(UITextField *)textField;
 
+- (void)hideQuickType;
+
+- (void)showQuickType;
+
 @end
 
 @protocol BSWQuickTypeDelegate
