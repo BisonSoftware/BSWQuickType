@@ -5,6 +5,8 @@ Imitates the functionality of Apple's QuickType with the ability to fill in cust
 
 - Bison Software: http://www.bisonsoftware.us/
 
+![Demo](https://i.imgur.com/SxGWtcf.gif)
+
 ##Usage
 First you're going to want to import the `BSWQuickType` files by adding the files to your project then adding an import statement to the top of your .h file like so:
 
