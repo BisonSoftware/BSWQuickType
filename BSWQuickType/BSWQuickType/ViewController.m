@@ -29,7 +29,7 @@
 	[_exampleTextField setBackgroundColor:[UIColor lightGrayColor]];
 	quickTypeView = [[BSWQuickType alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 36)
 										suggestionArray:_namesArray
-									  filterSuggestions:NO
+									  filterSuggestions:YES
 											onTextField:_exampleTextField];
 	quickTypeView.quickTypeShouldScroll = YES;
 	quickTypeView.quickTypePagingEnabled = YES;
@@ -40,8 +40,9 @@
 	[self.view addSubview:_exampleTextField];
 }
 
-- (void)quickType:(BSWQuickType *)quickType selectedButtonAtIndex:(NSInteger)buttonIndex {
-	[quickTypeView.textField insertText:_namesArray[buttonIndex]];
+- (void)quickType:(BSWQuickType *)quickType selectedButtonAtIndex:(NSInteger)buttonIndex withArray:(NSArray *)resultsArray {
+	[quickTypeView.textField setClearsOnInsertion:YES];
+	[quickTypeView.textField insertText:resultsArray[buttonIndex]];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

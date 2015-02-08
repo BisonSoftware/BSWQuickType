@@ -46,9 +46,10 @@
 /**
  *  Called whenever a user taps one of the suggestions.
  *
- *  @param quickType   The QuickType object that sent the message.
- *  @param buttonIndex The index in the suggestions array that was tapped.
+ *  @param quickType    The QuickType object that sent the message.
+ *  @param buttonIndex  The index in the suggestions array that was tapped.
+ *  @param resultsArray Returns the array used in the QuickType view. If you are using the filter, you must use this array rather than your own.
  */
-- (void)quickType:(BSWQuickType *)quickType selectedButtonAtIndex:(NSInteger)buttonIndex;
+- (void)quickType:(BSWQuickType *)quickType selectedButtonAtIndex:(NSInteger)buttonIndex withArray:(NSArray *)resultsArray;
 
 @end

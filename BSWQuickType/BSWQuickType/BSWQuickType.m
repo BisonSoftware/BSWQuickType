@@ -11,6 +11,7 @@
 @implementation BSWQuickType {
 	NSArray *_suggestionArray;
 	NSArray *_contents;
+	NSArray *_searchResults;
 	CGRect _frame;
 }
 @synthesize delegate;
@@ -27,6 +28,8 @@
 	_suggestionArray = suggestionArray;
 	_textField = textField;
 	_frame = frame;
+	_quickTypeFilter = filter;
+	_searchResults = _suggestionArray;
 	
 	[self updateQuickTypeWithContents:suggestionArray frame:frame];
 	
@@ -64,7 +67,7 @@
 }
 
 - (IBAction)suggestionTapped:(UIButton *)sender {
-	[delegate quickType:self selectedButtonAtIndex:sender.tag];
+	[delegate quickType:self selectedButtonAtIndex:sender.tag withArray:_searchResults];
 }
 
 - (void)textFieldDidChange:(UITextField *)sender {
@@ -75,8 +78,10 @@
 	NSArray *searchResults = [tempArray filteredArrayUsingPredicate:searchSearch];
 	
 	if (searchResults.count == 0 || !_quickTypeFilter) {
+		_searchResults = _suggestionArray;
 		[self updateQuickTypeWithContents:_suggestionArray frame:_frame];
 	} else {
+		_searchResults = searchResults;
 		[self updateQuickTypeWithContents:searchResults frame:_frame];
 	}
 }
