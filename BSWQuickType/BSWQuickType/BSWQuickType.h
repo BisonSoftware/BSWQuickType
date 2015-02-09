@@ -47,6 +47,7 @@
 
 @protocol BSWQuickTypeDelegate
 
+@required
 /**
  *  Called whenever a user taps one of the suggestions.
  *

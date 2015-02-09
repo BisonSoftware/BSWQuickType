@@ -28,6 +28,7 @@
 																	  40)];
 	[_exampleTextField setBorderStyle:UITextBorderStyleRoundedRect];
 	[_exampleTextField setPlaceholder:@"Start typing!"];
+	[_exampleTextField setTextColor:[UIColor whiteColor]];
 	[_exampleTextField setBackgroundColor:[UIColor lightGrayColor]];
 	quickTypeView = [[BSWQuickType alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 36)
 										suggestionArray:_namesArray
