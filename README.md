@@ -8,12 +8,15 @@ Imitates the functionality of Apple's QuickType with the ability to fill in cust
 ![Demo](https://i.imgur.com/SxGWtcf.gif)
 
 ##Usage
+###Import
 First you're going to want to import the `BSWQuickType` files by adding the files to your project then adding an import statement to the top of your .h file like so:
 
 `#import "BSWQuickType.h"`
 
+###Delegate
 You'll then want to conform your current class to the `BSWQuickTypeDelegate` by adding `<BSWQuickTypeDelegate>` to your .h file.
 
+###Initialize
 Now you'll be able to create a `BSWQuickType` object in your .m file. It's recommended you make your `BSWQuickType` object an instance variable in case you need to use it outside of the method it's being initialized in. To create your `BSWQuickType` object, use the following lines:
 
 ```BSWQuickType *quickTypeView = [[BSWQuickType alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 36) suggestionArray:@[@"Text", @"For", @"You"] filterSuggestions:YES onTextField:_demoTextField];```
