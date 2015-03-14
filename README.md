@@ -41,6 +41,9 @@ Hides the QuickType view from the user.
 ```- (void)showQuickType;```
 Shows the QuickType view to the user.
 
+##TODO
+- [x] Make it visually more similar to Apple's QuickType
+
 ##License
 The MIT License (MIT)
 
