@@ -104,7 +104,9 @@
 																		  0,
 																		  frame.size.width/3,
 																		  frame.size.height)];
+		
 		[suggestionButton setTitle:contents[i] forState:UIControlStateNormal];
+		[suggestionButton.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail];
 		
 		// styling
 		[suggestionButton setBackgroundImage:[self setColor:[UIColor colorWithRed:173.0/255 green:180.0/255 blue:190.0/255 alpha:1]]

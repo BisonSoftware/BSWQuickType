@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	[self.view setBackgroundColor:[UIColor whiteColor]];
-	_namesArray = @[@"Example", @"Text", @"For", @"You"];
+	_namesArray = @[@"Bison", @"Software's", @"Quick", @"Type", @"Library", @"Enjoy! 😀", @"Really Long Words!"];
 	_exampleTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.view.frame) - 200/2,
 																	  55,
 																	  200,
@@ -49,20 +49,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
 	return YES;
-}
-
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-	if (event.subtype == UIEventSubtypeMotionShake) {
-		if (quickTypeView.hidden) {
-			[quickTypeView showQuickType];
-		} else {
-			[quickTypeView hideQuickType];
-		}
-	}
-	
-	if ([super respondsToSelector:@selector(motionEnded:withEvent:)]) {
-		[super motionEnded:motion withEvent:event];
-	}
 }
 
 - (void)didReceiveMemoryWarning {
