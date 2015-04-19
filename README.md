@@ -3,7 +3,7 @@ Imitates the functionality of Apple's QuickType with the ability to fill in cust
 
 `BSWQuickType` is a great way to suggest more relevant words to your users than Apple's QuickType will. This `UIScrollView` works by attaching to the top of the users keyboard and allowing them to tap the suggestions.
 
-- Bison Software: http://www.bisonsoftware.us/
+- Bison Software: http://www.bison.software/
 
 ![Demo](https://i.imgur.com/SxGWtcf.gif)
 
