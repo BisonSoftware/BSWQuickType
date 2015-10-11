@@ -19,7 +19,9 @@ You'll then want to conform your current class to the `BSWQuickTypeDelegate` by 
 ###Initialize
 Now you'll be able to create a `BSWQuickType` object in your .m file. It's recommended you make your `BSWQuickType` object an instance variable in case you need to use it outside of the method it's being initialized in. To create your `BSWQuickType` object, use the following lines:
 
-```BSWQuickType *quickTypeView = [[BSWQuickType alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 36) suggestionArray:@[@"Text", @"For", @"You"] filterSuggestions:YES onTextField:_demoTextField];```
+```objective-c
+BSWQuickType *quickTypeView = [[BSWQuickType alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 36) suggestionArray:@[@"Text", @"For", @"You"] filterSuggestions:YES onTextField:_demoTextField];
+```
 
 This'll create a `BSWQuickType` view object automatically, and nothing else is required in order for it to work, although there are a few configurations.
 
@@ -30,7 +32,9 @@ This'll create a `BSWQuickType` view object automatically, and nothing else is r
 - `quickTypeFilter` - Should the BSWQuickType filter through your suggestions and give the most relevant ones first. (BOOL)
 
 ##Protocols
-```- (void)quickType:(BSWQuickType *)quickType selectedButtonAtIndex:(NSInteger)buttonIndex withArray:(NSArray *)resultsArray;```
+```objective-c
+- (void)quickType:(BSWQuickType *)quickType selectedButtonAtIndex:(NSInteger)buttonIndex withArray:(NSArray *)resultsArray;
+```
 
 This is the only protocol currently available in `BSWQuickType` and is called whenever a user taps a suggestion. The method allows the use of the current `BSWQuickType` object, the suggestion button's index, and finally the array used if filtering is enabled.
 
