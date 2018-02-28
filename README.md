@@ -48,7 +48,7 @@ Shows the QuickType view to the user.
 ## TODO
 - [x] Make it visually more similar to Apple's QuickType
 
-##License
+## License
 The MIT License (MIT)
 
 Copyright (c) 2015 
