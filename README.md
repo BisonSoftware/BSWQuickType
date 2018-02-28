@@ -7,16 +7,16 @@ Imitates the functionality of Apple's QuickType with the ability to fill in cust
 
 ![Demo](https://i.imgur.com/SxGWtcf.gif)
 
-##Usage
-###Import
+## Usage
+### Import
 First you're going to want to import the `BSWQuickType` files by adding the files to your project then adding an import statement to the top of your .h file like so:
 
 `#import "BSWQuickType.h"`
 
-###Delegate
+### Delegate
 You'll then want to conform your current class to the `BSWQuickTypeDelegate` by adding `<BSWQuickTypeDelegate>` to your .h file.
 
-###Initialize
+### Initialize
 Now you'll be able to create a `BSWQuickType` object in your .m file. It's recommended you make your `BSWQuickType` object an instance variable in case you need to use it outside of the method it's being initialized in. To create your `BSWQuickType` object, use the following lines:
 
 ```objective-c
@@ -25,27 +25,27 @@ BSWQuickType *quickTypeView = [[BSWQuickType alloc] initWithFrame:CGRectMake(0, 
 
 This'll create a `BSWQuickType` view object automatically, and nothing else is required in order for it to work, although there are a few configurations.
 
-##Configurations
+## Configurations
 - `quickTypeShouldScroll` - Should the user be able to scroll the suggestions. (BOOL)
 - `quickTypePagingEnabled` - Should the scroll view have "pages" of suggestions when scrolling, or should it be continuous scrolling. (BOOL)
 - `quickTypeBouncingEnabled` - Determines if the scroll view should bounce if the user goes too far to once side when scrolling. (BOOL)
 - `quickTypeFilter` - Should the BSWQuickType filter through your suggestions and give the most relevant ones first. (BOOL)
 
-##Protocols
+## Protocols
 ```objective-c
 - (void)quickType:(BSWQuickType *)quickType selectedButtonAtIndex:(NSInteger)buttonIndex withArray:(NSArray *)resultsArray;
 ```
 
 This is the only protocol currently available in `BSWQuickType` and is called whenever a user taps a suggestion. The method allows the use of the current `BSWQuickType` object, the suggestion button's index, and finally the array used if filtering is enabled.
 
-##Methods
+## Methods
 ```- (void)hideQuickType;```
 Hides the QuickType view from the user.
 
 ```- (void)showQuickType;```
 Shows the QuickType view to the user.
 
-##TODO
+## TODO
 - [x] Make it visually more similar to Apple's QuickType
 
 ##License
